@@ -1,12 +1,6 @@
 #include <iostream>
 
-int main() {
-    // Disable C IO sync
-    std::ios_base::sync_with_stdio(false);
-
-    std::cout << "Bitwise Operators Lab" << '\n';
-    std::cout << "---------------------" << '\n';
-
+void bitwise_basics() {
     // Bitwise AND
     // -----------
     // 5 & 3 = 0b101 & 0b011 = 0b001 = 1
@@ -44,7 +38,9 @@ int main() {
     std::cout << "5 >> 1 = " << result_right_shift << '\n';
 
     std::cout << '\n';
+}
 
+void bitflags() {
     // One Application of Bitwise Operations: Flags
     // --------------------------------------------
     // Common in some C interfaces - OpenGL is an example
@@ -78,6 +74,17 @@ int main() {
     } else {
         std::cout << "Setting does not have flag3 set.\n";
     }
+}
+
+int main() {
+    // Disable C IO sync
+    std::ios_base::sync_with_stdio(false);
+
+    std::cout << "Bitwise Operators Lab" << '\n';
+    std::cout << "---------------------" << '\n';
+
+    bitwise_basics();
+    bitflags();
 
     return 0;
 }
