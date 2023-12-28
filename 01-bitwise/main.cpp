@@ -72,15 +72,48 @@ void bit_fields() {
     // possible representing many different possible configurations.
     //
     // Note that for all flags f, for every other flag f0 other than f, f & f0 == 0.
-    int flag1 = 0b001;
-    int flag2 = 0b010;
-    int flag3 = 0b100;
+    int flag1 = 0b001; // 1
+    int flag2 = 0b010; // 1 << 1
+    int flag3 = 0b100; // 1 << 2
 
     // Compose setting of some flags.
     int setting = flag1 | flag3;
+    // alternate method
+    // int setting = 0;
+    // setting |= flag1;
+    // setting |= flag3;
 
     // (setting & flag1) is 0 if flag1 is not set, and (flag1) if flag1 is set. This is the trick behind
     // the `if(setting & flag) { ... }` notation.
+    if (setting & flag1) {
+        std::cout << "Setting has flag1 set.\n";
+    } else {
+        std::cout << "Setting does not have flag1 set.\n";
+    }
+
+    if (setting & flag2) {
+        std::cout << "Setting has flag2 set.\n";
+    } else {
+        std::cout << "Setting does not have flag2 set.\n";
+    }
+
+    if (setting & flag3) {
+        std::cout << "Setting has flag3 set.\n";
+    } else {
+        std::cout << "Setting does not have flag3 set.\n";
+    }
+
+    // Testing 2 flags
+    if ((setting & (flag1 | flag3)) == (flag1 | flag3)) {
+        std::cout << "flag1 and flag3 are set\n";
+    } else {
+        std::cout << "either flag1 is unset, flag3 is unset, or both!\n";
+    }
+
+    // Clear flag1 from setting
+    std::cout << "Clearing flag 1...\n";
+    setting &= ~flag1;
+
     if (setting & flag1) {
         std::cout << "Setting has flag1 set.\n";
     } else {
