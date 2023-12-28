@@ -40,8 +40,32 @@ void bitwise_basics() {
     std::cout << '\n';
 }
 
-void bitflags() {
-    // One Application of Bitwise Operations: Flags
+void parity_by_bit() {
+    // Checking the parity of an integer can be performed using bitwise operations:
+    int even = 234232;
+    int odd = 28986243;
+
+    // What is the parity of 'even'?
+    if (even & 0x1) {
+        std::cout << "even is odd\n";
+    }
+    if ((even & 0x1) == 0) {
+        std::cout << "even is even\n";
+    }
+
+    // What is the parity of 'odd'?
+    if (odd & 0x1) {
+        std::cout << "odd is odd\n";
+    }
+    if ((odd & 0x1) == 0) {
+        std::cout << "odd is even\n";
+    }
+
+    std::cout << '\n';
+}
+
+void bit_fields() {
+    // One Application of Bitwise Operations: Bit fields
     // --------------------------------------------
     // Common in some C interfaces - OpenGL is an example
     // Flags composed through bitwise OR are passed in a single integer,
@@ -84,7 +108,8 @@ int main() {
     std::cout << "---------------------" << '\n';
 
     bitwise_basics();
-    bitflags();
+    parity_by_bit();
+    bit_fields();
 
     return 0;
 }
